@@ -1,0 +1,14 @@
+.studentData {
+  /* background-color: black; */
+  height: 80vh;
+}
+.details div {
+  text-align: center;
+  background-color: rgb(199, 199, 199);
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+  max-height: 200px;
+  padding: 20px;
+  margin: 20px;
+}
