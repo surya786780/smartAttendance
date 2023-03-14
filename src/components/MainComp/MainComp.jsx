@@ -1,28 +1,23 @@
-import {
-  AppstoreOutlined,
-  BarChartOutlined,
-  CloudOutlined,
-  ShopOutlined,
-  TeamOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
 import { Layout, Menu, theme } from "antd";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-import StudentData from "../StudentData/StudentData";
-import CalendarComp from "../Calendar/Calendar";
-import Table from "../Table/Table";
 import "./MainComp.css";
-import HomeComp from "../HomeComp/HomeComp";
-const { Header, Content, Footer, Sider } = Layout;
+import { AllData } from "../../pages/Router";
+const { Header, Sider } = Layout;
 
 const App = () => {
-  const [comp, setComp] = useState(0);
+  const [data, setData] = useContext(AllData);
+  setData("This is Main comp");
+  // get last end point url
+  const search = useLocation();
+  const endPoint = search.pathname;
+  // get last end point url
+
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
   return (
     <Layout hasSider>
       <Sider
@@ -48,132 +43,69 @@ const App = () => {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["4"]}
+          defaultSelectedKeys={[endPoint]}
           items={[
             {
-              key: "1",
+              key: "/home-page",
               icon: (
-                <div
-                  onClick={() => {
-                    setComp(1);
-                    console.log("working");
-                  }}
-                >
-                  <span className="material-symbols-outlined me-4">
-                    dashboard
-                  </span>
-                </div>
+                <Link to="/home-page" className="link">
+                  <span className="material-symbols-outlined">home</span>
+                </Link>
               ),
               label: (
-                <div
-                  onClick={() => {
-                    setComp(1);
-                    console.log("working");
-                  }}
-                >
-                  Dashboard
-                </div>
+                <Link to="/home-page" className="link">
+                  <div>Home</div>
+                </Link>
               ),
             },
             {
-              key: "2",
+              key: "/dashboard",
               icon: (
-                <div
-                  onClick={() => {
-                    setComp(2);
-                  }}
-                >
-                  <span className="material-symbols-outlined me-4">mail</span>
-                </div>
+                <Link to="/dashboard" className="link">
+                  <div>
+                    <span className="material-symbols-outlined ">
+                      dashboard
+                    </span>
+                  </div>
+                </Link>
               ),
               label: (
-                <div
-                  onClick={() => {
-                    setComp(2);
-                  }}
-                >
-                  Messages
-                </div>
+                <Link to="/dashboard" className="link">
+                  <div>Dashboard</div>
+                </Link>
               ),
             },
             {
-              key: "3",
+              key: "/daily-data",
               icon: (
-                <div
-                  onClick={() => {
-                    setComp(3);
-                  }}
-                >
-                  <span className="material-symbols-outlined me-4">
-                    article
-                  </span>
-                </div>
+                <Link to="/daily-data" className="link">
+                  <div>
+                    <span className="material-symbols-outlined">
+                      description
+                    </span>
+                  </div>
+                </Link>
               ),
               label: (
-                <div
-                  onClick={() => {
-                    setComp(3);
-                  }}
-                >
-                  Courses
-                </div>
+                <Link to="/daily-data" className="link">
+                  <div>Daily Data</div>
+                </Link>
               ),
             },
             {
-              key: "4",
+              key: "/student-data",
               icon: (
-                <div
-                  onClick={() => {
-                    setComp(4);
-                  }}
-                >
-                  <span className="material-symbols-outlined me-4">sort</span>
-                </div>
+                <Link to="/student-data" className="link">
+                  <div>
+                    <span className="material-symbols-outlined ">article</span>
+                  </div>
+                </Link>
               ),
               label: (
-                <div
-                  onClick={() => {
-                    setComp(4);
-                  }}
-                >
-                  Classes
-                </div>
+                <Link to="/student-data" className="link">
+                  <div>Student's data</div>
+                </Link>
               ),
-            },
-            {
-              key: "5",
-              icon: (
-                <div
-                  onClick={() => {
-                    setComp(5);
-                    console.log("working");
-                  }}
-                >
-                  <span className="material-symbols-outlined me-4">
-                    article
-                  </span>
-                </div>
-              ),
-              label: (
-                <div
-                  onClick={() => {
-                    setComp(5);
-                  }}
-                >
-                  Course 1
-                </div>
-              ),
-            },
-            {
-              key: "6",
-              icon: (
-                <>
-                  <span className="material-symbols-outlined me-4">
-                    article
-                  </span>
-                </>
-              ),
-              label: "Course 2",
             },
           ]}
         />
@@ -187,51 +119,23 @@ const App = () => {
         <Header
           style={{
             padding: 0,
-            background: colorBgContainer,
+            background: "",
+            borderBottom: "1px solid gray",
           }}
         >
           <h3
-            className=" d-flex  align-items-center justify-content-center"
+            className=" d-flex  align-items-center justify-content-center text-light"
             style={{ height: "100%" }}
           >
             Smart Attendance
           </h3>
         </Header>
-        <Content
-          style={{
-            margin: "24px 16px 0",
-            overflow: "initial",
-          }}
-        >
-          {comp == 0 ? (
-            <>
-              <HomeComp />
-            </>
-          ) : comp == 1 ? (
-            <>
-              <StudentData />
-            </>
-          ) : comp == 2 ? (
-            <>
-              <CalendarComp />
-            </>
-          ) : comp == 3 ? (
-            <>
-              <Table />
-            </>
-          ) : comp == 4 ? (
-            <>4</>
-          ) : comp == 5 ? (
-            <>5</>
-          ) : (
-            <>null</>
-          )}
-        </Content>
-        <Footer
+
+        {/* <Footer
           style={{
             textAlign: "center",
           }}
-        ></Footer>
+        ></Footer> */}
       </Layout>
     </Layout>
   );

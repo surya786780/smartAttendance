@@ -1,0 +1,15 @@
+.link {
+  text-decoration: none;
+}
+.inner-comp {
+  width: 87%;
+  margin: auto 0 0 auto;
+}
+.home-comp img {
+  height: 400px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}

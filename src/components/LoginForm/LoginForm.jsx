@@ -1,16 +1,38 @@
 import React, { useState } from "react";
-import "./LoginForm.css";
+
+import { useNavigate } from "react-router-dom";
 import { Button, Checkbox, Form, Input } from "antd";
+import { toast } from "react-toastify";
+
 import img6 from "../../Assets/images/LandingPage/img6.svg";
-const onFinish = (values) => {
-  console.log("Success:", values);
-};
-const onFinishFailed = (errorInfo) => {
-  console.log("Failed:", errorInfo);
-};
+
+import "./LoginForm.css";
 
 function LoginForm() {
+  const navigate = useNavigate();
   const [loginPage, setLoginPage] = useState(1);
+
+  const onFinish = (values) => {
+    console.log("Success:", values);
+    if (values.username === "ksrce" && values.password === "123456") {
+      navigate("/home-page", { replace: true });
+    } else {
+      toast.error("Error! Invalid username or password", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      console.log("err");
+    }
+  };
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
 
   return (
     <div className="loginPage">
@@ -90,7 +112,7 @@ function LoginForm() {
           ) : loginPage == 2 ? (
             <>
               <div className="welcome">
-                <p className="wel">Welcome to LearnIt,</p>
+                <p className="wel">Welcome to Smart Attendance,</p>
                 <p className="cont">Signup to continue.</p>
               </div>
               <Form

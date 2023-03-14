@@ -16,3 +16,10 @@
   border: 1px solid #d9d9d9;
   border-radius: 2px;
 }
+.delete-btn {
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+.delete-btn {
+  text-decoration: none;
+}

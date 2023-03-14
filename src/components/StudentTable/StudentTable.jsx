@@ -1,6 +1,13 @@
 import { Button, Form, Input, Popconfirm, Table } from "antd";
 import React, { useContext, useEffect, useRef, useState } from "react";
-import "./Table.css";
+
+import axios from "axios";
+
+import { AllData } from "../../pages/Router";
+
+import MainComp from "../MainComp/MainComp";
+import "./StudentTable.css";
+
 const EditableContext = React.createContext(null);
 const EditableRow = ({ index, ...props }) => {
   const [form] = Form.useForm();
@@ -78,74 +85,93 @@ const EditableCell = ({
   }
   return <td {...restProps}>{childNode}</td>;
 };
-const App = () => {
+
+const StudentTable = () => {
+  const [userData, setUserData] = useState([]);
+
+  const [data, setData] = useContext(AllData);
+  console.log(data, " this is studentTable");
   const [dataSource, setDataSource] = useState([
     {
       key: "0",
+      id: 1234,
       name: "Edward King 0",
-      age: "32",
+      phone: "32",
+      email: "edward@gmail.com",
       address: "London, Park Lane no. 0",
     },
     {
       key: "1",
+      id: 1235,
       name: "Edward King 1",
-      age: "32",
+      phone: "32",
+      email: "edward@gmail.com",
       address: "London, Park Lane no. 1",
     },
   ]);
+
   const [count, setCount] = useState(2);
   const handleDelete = (key) => {
     const newData = dataSource.filter((item) => item.key !== key);
     setDataSource(newData);
   };
+
   const defaultColumns = [
     {
       title: "Register Number",
-      dataIndex: "regno",
+      dataIndex: "id",
       width: "10%",
-      editable: true,
+      // editable: true,
     },
     {
       title: "Name",
       dataIndex: "name",
       width: "30%",
-      editable: true,
+      // editable: true,
     },
     {
-      title: "age",
-      dataIndex: "age",
-      editable: true,
+      title: "Phone number",
+      dataIndex: "phone",
+      // editable: true,
     },
     {
-      title: "address",
+      title: "Email",
+      dataIndex: "email",
+      // editable: true,
+    },
+    {
+      title: "Address",
       dataIndex: "address",
-      editable: true,
+      // editable: true,
     },
     {
-      title: "operation",
-      dataIndex: "operation",
+      title: "Action",
+      dataIndex: "action",
       render: (_, record) =>
         dataSource.length >= 1 ? (
           <Popconfirm
             title="Sure to delete?"
             onConfirm={() => handleDelete(record.key)}
           >
-            <a>Delete</a>
+            <a className="delete-btn bg-danger p-2 text-light">Delete</a>
           </Popconfirm>
         ) : null,
     },
   ];
+  //
   const handleAdd = () => {
     const newData = {
       key: count,
-      regno: "123456",
+      id: "123456",
       name: `Edward King ${count}`,
-      age: "32",
+      phone: "32",
+      email: "edward@gmail.com",
       address: `London, Park Lane no. ${count}`,
     };
     setDataSource([...dataSource, newData]);
     setCount(count + 1);
   };
+  //
   const handleSave = (row) => {
     const newData = [...dataSource];
     const index = newData.findIndex((item) => row.key === item.key);
@@ -162,6 +188,7 @@ const App = () => {
       cell: EditableCell,
     },
   };
+  //
   const columns = defaultColumns.map((col) => {
     if (!col.editable) {
       return col;
@@ -177,25 +204,55 @@ const App = () => {
       }),
     };
   });
+  //
+
+  //api request
+
+  const getData = async () => {
+    console.log("hitt");
+    try {
+      const url = `https://jsonplaceholder.typicode.com/users`;
+      const userData = await axios.get(url);
+      setDataSource(userData.data);
+      console.log(userData.data);
+      // const { status } = userData.data || {};
+      // if (status === "SUCCESS") {
+      //   console.log(userData);
+      //   // localStorage.setItem("token", JSON.stringify(userData));
+      // }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  //api request
+
   return (
-    <div>
-      <Button
-        onClick={handleAdd}
-        type="primary"
-        style={{
-          marginBottom: 16,
-        }}
-      >
-        Add a row
-      </Button>
-      <Table
-        components={components}
-        rowClassName={() => "editable-row"}
-        bordered
-        dataSource={dataSource}
-        columns={columns}
-      />
-    </div>
+    <>
+      <MainComp />
+      <div className="inner-comp p-5">
+        <Button
+          onClick={handleAdd}
+          type="primary"
+          style={{
+            marginBottom: 16,
+          }}
+        >
+          Add a row
+        </Button>
+        <Table
+          components={components}
+          rowClassName={() => "editable-row"}
+          bordered
+          dataSource={dataSource}
+          columns={columns}
+        />
+      </div>
+    </>
   );
 };
-export default App;
+export default StudentTable;
