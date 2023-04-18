@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import LoginForm from "../components/LoginForm/LoginForm";
 import Dashboard from "../components/Dashboard/Dashboard";
-import StudentTable from "../components/StudentTable/StudentTable";
+import StudentTable1 from "../components/StudentTable/StudentTable1";
 import MainComp from "../components/MainComp/MainComp";
 import DailyData from "../components/DailyData/DailyData";
 import HomeComp from "../components/HomeComp/HomeComp";
@@ -18,7 +18,7 @@ function Router() {
         <Route path="/home-page" element={<HomeComp />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/daily-data" element={<DailyData />}></Route>
-        <Route path="/student-data" element={<StudentTable />}></Route>
+        <Route path="/student-data" element={<StudentTable1 />}></Route>
       </Routes>
     </AllData.Provider>
   );

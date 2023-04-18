@@ -16,3 +16,9 @@
   padding: 20px;
   margin: 20px;
 }
+
+
+.noDataDiv{
+  display: flex;
+  justify-content: center;
+}

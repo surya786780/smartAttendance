@@ -2,14 +2,26 @@
   text-decoration: none;
 }
 .inner-comp {
-  width: 87%;
+  width: 84%;
   margin: auto 0 0 auto;
 }
 .home-comp img {
-  height: 400px;
-  width: 400px;
+  height: 452px;
+  width: 860px;
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: center;
-  margin: auto;
+  margin-left: 308px;
+}
+.present{
+  background-color: greenyellow !important;
+  color: black !important;
+  font-weight: 500;
+  border: 1px solid green;
+}
+.absent{
+  background-color: tomato !important;
+  color: black !important;
+  font-weight: 500;
+  border: 1px solid red;
 }
