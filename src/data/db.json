@@ -1,0 +1,67 @@
+{
+    "port":{"name":"json-server --watch db.json --port 8000"},
+    "dailyAttendance": [
+      { "id": 1,"RegisterNumber":"1913001", "name": "Anush kumar", "phoneNumber": "8876549022","attendance":true },
+      { "id": 2,"RegisterNumber":"1913002", "name": "Bharath", "phoneNumber": "7876449022","attendance":false },
+      { "id": 3,"RegisterNumber":"1913003", "name": "Dhinesh", "phoneNumber": "8998788733","attendance":false },
+      { "id": 4,"RegisterNumber":"1913004", "name": "Elango", "phoneNumber": "8838946444","attendance":true },
+      { "id": 5,"RegisterNumber":"1913005", "name": "Surya", "phoneNumber": "9876543210","attendance":true }
+
+    ],
+    "allDaysAttendance": [
+        { "id":"1042023",
+        "details":[
+        { "id": 1,"RegisterNumber":"1913001", "name": "Anush kumar", "phoneNumber": "8876549022","attendance":false },
+        { "id": 2,"RegisterNumber":"1913002", "name": "Bharath", "phoneNumber": "7876449022","attendance":false },
+        { "id": 3,"RegisterNumber":"1913003", "name": "Dhinesh", "phoneNumber": "8998788733","attendance":true },
+        { "id": 4,"RegisterNumber":"1913004", "name": "Elango", "phoneNumber": "8838946444","attendance":true },
+        { "id": 5,"RegisterNumber":"1913005", "name": "Surya", "phoneNumber": "9876543210","attendance":false }]
+        },
+      { "id":"1142023",
+      "details":[
+      { "id": 1,"RegisterNumber":"1913001", "name": "Anush kumar", "phoneNumber": "8876549022","attendance":true },
+      { "id": 2,"RegisterNumber":"1913002", "name": "Bharath", "phoneNumber": "7876449022","attendance":false },
+      { "id": 3,"RegisterNumber":"1913003", "name": "Dhinesh", "phoneNumber": "8998788733","attendance":false },
+      { "id": 4,"RegisterNumber":"1913004", "name": "Elango", "phoneNumber": "8838946444","attendance":true },
+      { "id": 5,"RegisterNumber":"1913005", "name": "Surya", "phoneNumber": "9876543210","attendance":true }]
+      }
+    ],
+    "studentsData":[
+        { "id": 1,"RegisterNumber":"1913001", "name": "Anush kumar", "phoneNumber": "8876549022","emailID":"anush9090@gmail.com",
+        "address":{
+            "doorno":"10/3",
+            "street":"anna street",
+            "district":"salem",
+            "zip":"620003"
+        }
+    },{ "id": 2,"RegisterNumber":"1913002", "name": "Bharath", "phoneNumber": "7876449022","emailID":"bharath787@gmail.com",
+    "address":{
+        "doorno":"10/3",
+        "street":"anna street",
+        "district":"salem",
+        "zip":"620003"
+    }
+},{ "id": 3,"RegisterNumber":"1913003", "name": "Dhinesh", "phoneNumber": "8998788733","emailID":"dhineshrrs880@gmail.com",
+"address":{
+    "doorno":"10/3",
+    "street":"anna street",
+    "district":"salem",
+    "zip":"620003"
+}
+},{ "id": 4,"RegisterNumber":"1913004", "name": "Elango", "phoneNumber": "8838946444","emailID":"devilelango443@gmail.com",
+"address":{
+    "doorno":"10/3",
+    "street":"anna street",
+    "district":"salem",
+    "zip":"620003"
+}
+},{  "id": 5,"RegisterNumber":"1913005", "name": "Surya", "phoneNumber": "9876543210","emailID":"suryask4444@gmail.com",
+"address":{
+    "doorno":"10/3",
+    "street":"anna street",
+    "district":"salem",
+    "zip":"620003"
+}
+}
+    ]
+  }
