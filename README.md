@@ -1,5 +1,9 @@
 Here Some of the outputs of smart attendance
 
+This smart attendane working based on Machine learning, face recognition technique.
+Once the attendance is captured using face recognition that data will be stored in mysql database.
+Then the data is fetched using node and displayed in website.
+
 <h1>outputs</h1>
 <br/>
 <!-- <img src="https://github.com/surya786780/smartAttendance/assets/82148364/52589402-695c-43f7-92c7-a38c631ae403" alt="img-1" height="500px" width="500px" style="margin-right:20px"/>
