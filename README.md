@@ -2,7 +2,7 @@ Here Some of the outputs of smart attendance
 
 <h1>outputs</h1>
 <br/>
-![image](https://github.com/surya786780/smartAttendance/assets/82148364/52589402-695c-43f7-92c7-a38c631ae403)
+<img src="https://github.com/surya786780/smartAttendance/assets/82148364/52589402-695c-43f7-92c7-a38c631ae403" />
 <br/>
 ![image](https://github.com/surya786780/smartAttendance/assets/82148364/53a38d83-247f-4c97-b448-6004b410bd19)
 <br/>
