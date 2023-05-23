@@ -1,8 +1,8 @@
 Here Some of the outputs of smart attendance
 
-This smart attendane working based on Machine learning, face recognition technique.
+This smart attendance working based on Machine learning, face recognition technique.
 Once the attendance is captured using face recognition that data will be stored in mysql database.
-Then the data is fetched using node and displayed in website.
+Then the data is fetched using node and displayed in this react js website.
 
 <h1>outputs</h1>
 <br/>
